@@ -3,31 +3,40 @@ const { fileSystem, config } = require('./fsConfig');
 
 const readFile = require('./file-promise').read;
 
-const readAll = (path) => {
+const readDir = (path) => {
   return new Promise((resolve, reject) => {
-    const filesData = [];
-
-    fileSystem.readdir(path, fillFilesDataArray);
-
-    function fillFilesDataArray(err, files) {
+    fileSystem.readdir(path, (err, files) => {
       if (err) {
         reject(err);
       }
+      resolve(files);
+    })
+  });
+}
 
-      Promise.all(files.map(fileName => readFile(path + fileName)))
-        .then(res => {
-          files.forEach((fileName, i) => {
-            const data = {
-              name: fileName,
-              content: res[i]
-            };
+const formatedReadFile = (path) => {
+  return new Promise((resolve, reject) => {
+    readFile(path)
+      .then(data => {
+        const formatedFileInfo = {
+          name: path,
+          content: data
+        };
 
-            filesData.push(data);
-          });
+        resolve(formatedFileInfo);
+      })
+      .catch(resolve);
+  });
+}
 
-          resolve(filesData);
-        });
-    }
+const readAll = (path) => {
+  return new Promise((resolve, reject) => {
+    readDir(path)
+      .then(filesList => {
+        const formatedAllFiles = filesList.map(fileName => formatedReadFile(path + fileName));
+        Promise.all(formatedAllFiles).then(resolve);
+      })
+      .catch(reject);
   });
 }
 
