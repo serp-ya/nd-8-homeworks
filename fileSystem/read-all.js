@@ -6,13 +6,10 @@ const readFile = require('./file-promise').read;
 const readDir = (path) => {
   return new Promise((resolve, reject) => {
     fileSystem.readdir(path, (err, files) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(files);
-    })
+      err ? reject(err) : resolve(files);
+    });
   });
-}
+};
 
 const formatedReadFile = (path) => {
   return new Promise((resolve, reject) => {
@@ -27,17 +24,15 @@ const formatedReadFile = (path) => {
       })
       .catch(resolve);
   });
-}
+};
 
 const readAll = (path) => {
-  return new Promise((resolve, reject) => {
-    readDir(path)
-      .then(filesList => {
-        const formatedAllFiles = filesList.map(fileName => formatedReadFile(path + fileName));
-        Promise.all(formatedAllFiles).then(resolve);
-      })
-      .catch(reject);
-  });
-}
+  return readDir(path)
+    .then(filesList => {
+      const formatedAllFiles = filesList.map(fileName => formatedReadFile(path + fileName));
+      return Promise.all(formatedAllFiles);
+    })
+    .catch(console.error);
+};
 
 module.exports = readAll;

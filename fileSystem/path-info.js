@@ -15,7 +15,7 @@ const pathInfo = (path, callback) => {
       info.type = 'file';
       fileSystem.readFile(path, config, (err, data) => {
         if (err) {
-          console.error(err);
+          callback(err);
           return;
         }
 
@@ -27,7 +27,7 @@ const pathInfo = (path, callback) => {
       info.type = 'directory';
       fileSystem.readdir(path, config, (err, files) => {
         if (err) {
-          console.error(err);
+          callback(err);
           return;
         }
 
