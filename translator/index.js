@@ -16,12 +16,8 @@ function showForm(req, res) {
       'Content-Type': 'text/html; charset=utf-8'
     });
 
-    fs.readFile(__dirname + '/form.html', (err, data) => {
-      if (err) {
-        return console.error(err);
-      }
-      res.end(data);
-    });
+    const htmlStream = fs.createReadStream(__dirname + '/form.html');
+    htmlStream.pipe(res);
   }
 }
 
