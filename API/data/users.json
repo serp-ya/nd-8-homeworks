@@ -1,0 +1,217 @@
+[
+  {
+    "id": 1,
+    "name": "Philip J. Fry",
+    "score": 24
+  },
+  {
+    "id": 2,
+    "name": "Turanga Leela",
+    "score": 31
+  },
+  {
+    "id": 3,
+    "name": "Hubert J. Farnsworth",
+    "score": 18
+  },
+  {
+    "id": 4,
+    "name": "Bender Bending Rodriguez",
+    "score": 23
+  },
+  {
+    "id": 5,
+    "name": "Doctor John Zoidberg",
+    "score": 14
+  },
+  {
+    "id": 6,
+    "name": "Amy Wong",
+    "score": 30
+  },
+  {
+    "id": 7,
+    "name": "Zapp Brannigan",
+    "score": 13
+  },
+  {
+    "id": 8,
+    "name": "Enos Fry",
+    "score": 7
+  },
+  {
+    "id": 9,
+    "name": "Mildred Fry",
+    "score": 3
+  },
+  {
+    "id": 10,
+    "name": "Yancy Fry Sr.",
+    "score": 15
+  },
+  {
+    "id": 11,
+    "name": "Philip J. Fry II",
+    "score": 44
+  },
+  {
+    "id": 12,
+    "name": "Cubert Farnsworth",
+    "score": 15
+  },
+  {
+    "id": 13,
+    "name": "Old Man Waterfall",
+    "score": 25
+  },
+  {
+    "id": 14,
+    "name": "Frida Waterfall",
+    "score": 16
+  },
+  {
+    "id": 15,
+    "name": "Hutch Waterfall",
+    "score": 8
+  },
+  {
+    "id": 16,
+    "name": "Morgan Proctor",
+    "score": 21
+  },
+  {
+    "id": 17,
+    "name": "Warden Vogel",
+    "score": 17
+  },
+  {
+    "id": 18,
+    "name": "Randy Munchnik",
+    "score": 16
+  },
+  {
+    "id": 19,
+    "name": "Lars Fillmore",
+    "score": 20
+  },
+  {
+    "id": 20,
+    "name": "Richard Nixon's head",
+    "score": 11
+  },
+  {
+    "id": 21,
+    "name": "Dwayne",
+    "score": 5
+  },
+  {
+    "id": 22,
+    "name": "Vyolet",
+    "score": 7
+  },
+  {
+    "id": 23,
+    "name": "Raoul",
+    "score": 8
+  },
+  {
+    "id": 24,
+    "name": "Umbriel",
+    "score": 9
+  },
+  {
+    "id": 25,
+    "name": "Kif Kroker",
+    "score": 41
+  },
+  {
+    "id": 26,
+    "name": "Nibbler",
+    "score": 22
+  },
+  {
+    "id": 27,
+    "name": "Yivo",
+    "score": 17
+  },
+  {
+    "id": 28,
+    "name": "Lrrr",
+    "score": 44
+  },
+  {
+    "id": 29,
+    "name": "Slurms McKenzie",
+    "score": 19
+  },
+  {
+    "id": 30,
+    "name": "Glurmo",
+    "score": 7
+  },
+  {
+    "id": 31,
+    "name": "Grunka Lunka",
+    "score": 16
+  },
+  {
+    "id": 32,
+    "name": "Brain Slugs",
+    "score": 84
+  },
+  {
+    "id": 33,
+    "name": "Glab",
+    "score": 1
+  },
+  {
+    "id": 34,
+    "name": "Horrible Gelatinous Blob",
+    "score": 6
+  },
+  {
+    "id": 35,
+    "name": "Bret Blob",
+    "score": 8
+  },
+  {
+    "id": 36,
+    "name": "Blek",
+    "score": 14
+  },
+  {
+    "id": 37,
+    "name": "buggalo",
+    "score": 11
+  },
+  {
+    "id": 38,
+    "name": "Bont",
+    "score": 6
+  },
+  {
+    "id": 39,
+    "name": "Calculon",
+    "score": 16
+  },
+  {
+    "id": 40,
+    "name": "Flexo",
+    "score": 26
+  },
+  {
+    "id": 41,
+    "name": "Hedonism Bot",
+    "score": 8
+  },
+  {
+    "id": 42,
+    "name": "Dr. Perceptron",
+    "score": 14
+  },
+  {
+    "id": 43,
+    "name": "Nurse Ratchet",
+    "score": 9
+  }
+]
