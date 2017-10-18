@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>chat room - Bootdey.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="./main.css" rel="stylesheet">
+</head>
+
+<body>
+<audio id="meow" src="./audio/meow.mp3"></audio>
+<script>
+  meow.volume = 0.1;
+</script>
+<div class="login-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 col-xs-12">
+        <h1>Введите логин</h1>
+        <input class="username-input" type="text" placeholder="Логин">
+        <div class="error-box"></div>
+        
+        <h3>...и выберите аватар</h3>
+
+        <div class="row">
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/1.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/2.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/3.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/4.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/5.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/6.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/7.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/8.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/9.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/10.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/11.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/12.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/12.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/13.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/15.jpg" alt=""></div>
+          <div class="col-md-3 col-xs-6 avatar-block"><img src="./avatars/16.jpg" alt=""></div>
+        </div>
+
+        <button class="submit-login">Войти</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container bootstrap snippet hidden"> <!--ДОБАВИТЬ hidden-->
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-10 sound">
+        <div class="sound-off">
+          Выключть звук
+          <i class="fa fa-volume-up"></i>
+        </div>
+
+        <div class="sound-on hidden">
+          Включть звук
+          <i class="fa fa-volume-off"></i>
+        </div>
+      </div>
+		<div class="col-md-4 bg-white ">
+            <div class=" row border-bottom padding-sm" style="padding: 10px; height: 40px;">
+            	<span style="float: left">Комнаты</span>
+              <span class="add-room-btn">Добавить комнату <i class="fa fa-plus"></i></span>
+            </div>
+            
+            <!-- =============================================================== -->
+            <!-- member list -->
+            <ul class="rooms-list">
+                <li class="active bounceInDown">
+                	<a href="#" class="clearfix">
+                		<div class="room-name">	
+                			<strong>John Doe</strong>
+                		</div>
+                	</a>
+                </li>
+
+                <li>
+                	<a href="#" class="clearfix">
+                		<img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle">
+                		<div class="room-name">	
+                			<strong>Jane Doe</strong>
+                		</div>
+                		<div class="last-message text-muted">Lorem ipsum dolor sit amet.</div>
+                		<small class="time text-muted">5 mins ago</small>
+                	<small class="chat-alert text-muted"><i class="fa fa-check"></i></small>
+                	</a>
+                </li>
+            </ul>
+		</div>
+        
+        <!--=========================================================-->
+        <!-- selected chat -->
+    	<div class="col-md-8 bg-white ">
+            <div class="chat-message">
+                <ul class="chat">
+                </ul>
+            </div>
+            <div class="chat-box bg-white">
+            	<div class="input-group">
+            		<input class="form-control border no-shadow no-rounded" placeholder="Введите сообщение...">
+            		<span class="input-group-btn">
+            			<button class="btn btn-success no-rounded" type="button">Отправить</button>
+            		</span>
+            	</div><!-- /input-group -->	
+            </div>            
+		</div>        
+	</div>
+</div>
+
+<div class="modal-bg create-new-room">
+  <div class="modal-body">
+    <div class="modal-form">
+      <h3>Введите название новой комнаты</h3>
+      <div class="error-box"></div>
+      <input class="room-name-input" type="text" placeholder="Название новой комнаты...">
+      <button class="submit-room-name">Создать</button>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./client-side.js"></script>
+</body>
+</html>

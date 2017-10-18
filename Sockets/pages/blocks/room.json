@@ -1,0 +1,23 @@
+{
+  "tagName": "li",
+  "className": "bounceInDown",
+  "content": [
+    {
+      "tagName": "a",
+      "className": ["clearfix"],
+      "attributes": {"href": "#"},
+      "content": [
+        {
+          "tagName": "div",
+          "className": "room-name",
+          "content": [
+            {
+              "tagName": "strong",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

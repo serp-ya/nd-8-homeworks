@@ -1,0 +1,38 @@
+{
+  "tagName": "li",
+  "className": ["right", "clearfix"],
+  "content": [
+    {
+      "tagName": "span",
+      "className": ["chat-img", "pull-right"],
+      "content": [
+        {
+          "tagName": "img",
+          "attributes": {"src": "#", "alt": "User"}
+        }
+      ]
+    },
+    {
+      "tagName": "div",
+      "className": ["chat-body", "clearfix"],
+      "content": [
+        {
+          "tagName": "div",
+          "className": ["header"],
+          "content": [
+            {
+              "tagName": "strong",
+              "className": ["primary-font", "author-name"],
+              "content": ""
+            }
+          ]
+        },
+        {
+          "tagName": "p",
+          "className": ["message-text"],
+          "content": ""
+        }
+      ]
+    }
+  ]
+}
