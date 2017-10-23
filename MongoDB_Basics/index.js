@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const dbURL = 'mongodb://localhost:27017/kundryukov_db';
+const dbURL = 'mongodb://localhost:27017/kundryukov_hw_basics';
 const connection = MongoClient.connect(dbURL);
 const usersCollectionName = 'users_names';
 const temporaryStorageName = 'temp_data';
@@ -23,12 +23,12 @@ if ((!cliArgs || cliArgs.length < 1) && !CLICommands.deleteLastNames) {
   if (CLICommands.addNames) {
     const convertedNames = prepareNamesForSending(cliArgs);
     connection
-      // Connect to Database
+      // Connect to Database's collections
       .then(connectToCollections)
       // Update temp data & insert new names
-      .then(({names, temp}) => {
-        updateTempData(temp, convertedNames);
-        return names.insertMany(convertedNames);
+      .then(({namesCollection, tempCollection}) => {
+        updateTempData(tempCollection, convertedNames);
+        return namesCollection.insertMany(convertedNames);
       })
       // Show details
       .then(result => {
@@ -51,11 +51,11 @@ if ((!cliArgs || cliArgs.length < 1) && !CLICommands.deleteLastNames) {
       // Connect to Database's collections
       .then(connectToCollections)
       // Update temp data & convert query string
-      .then(({names, temp}) => {
-        updateTempData(temp, newNames);
+      .then(({namesCollection, tempCollection}) => {
+        updateTempData(tempCollection, newNames);
         return checkedFormatData.map(queryString => {
           const [oldName, newName] = prepareNamesForSending(queryString.split(':'));
-          return names.findOneAndUpdate(oldName, newName);
+          return namesCollection.findOneAndUpdate(oldName, newName);
         });
       })
       // Show info
@@ -83,9 +83,9 @@ if (CLICommands.deleteLastNames) {
     // Connect to Database's collections
     .then(connectToCollections)
     // Prevent temporary storage & Prepare temp's data
-    .then(({names, temp}) => {
-      const deletableNamesCollection = temp.find().toArray();
-      temp.deleteMany();
+    .then(({namesCollection, tempCollection}) => {
+      const deletableNamesCollection = tempCollection.find().toArray();
+      tempCollection.deleteMany();
 
       deletableNamesCollection
         // Receiving data and deleting
@@ -95,7 +95,7 @@ if (CLICommands.deleteLastNames) {
           }
           const deleteThis = deletableNamesArray.map(doc => {
             const deletableName = {name: doc.name};
-            return names.findOneAndDelete(deletableName);
+            return namesCollection.findOneAndDelete(deletableName);
           });
 
           // Show info after all processes are complited
@@ -156,7 +156,7 @@ function showAllNames(collection) {
 //// Connected to names and temporary data collections
 function connectToCollections(db) {
   return {
-    temp: db.collection(temporaryStorageName),
-    names: db.collection(usersCollectionName)
+    namesCollection: db.collection(usersCollectionName),
+    tempCollection: db.collection(temporaryStorageName)
   };
 }
