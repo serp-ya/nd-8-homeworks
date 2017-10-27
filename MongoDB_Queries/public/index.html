@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>MongoDB Queries</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="preloader-box">
+      <img src="./img/preloader.gif" alt="">
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 contacts-list-box">
+
+          <div class="row">
+            <h3 class="col-lg-8">
+              Контакты:
+            </h3>
+            <div class="col-lg-4 text-right">
+              <i class="add-user fa fa-plus-circle" data-toggle="modal" data-target=".add-user-modal"></i>
+            </div>
+          </div>
+
+          <ul class="contacts-list">
+
+          </ul>
+
+        </div>
+
+        <div class="col-lg-9 contact-detail-info">
+
+          <div class="error-box">
+            <p class="error-info"></p>
+          </div>
+
+          <div class="contact-info">
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade add-user-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <h4>Добавить контакт</h4>
+
+          <div class="error-box">
+            <p class="error-info"></p>
+          </div>
+
+          <form id="addUserForm" action="#">
+
+            <label> Имя
+              <input class="form-control" type="text" name="firstname" placeholder="Имя" required>
+            </label>
+
+            <label> Фамилия
+              <input class="form-control" type="text" name="surename" placeholder="Фамилия" required>
+            </label>
+
+            <label> Номер телефона
+              <input class="form-control" id="phoneInput" type="tel" name="phone" placeholder="Номер телефона" required>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Добавить</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade add-info-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+          <h4>Добавить информации</h4>
+
+          <div class="error-box">
+            <p class="error-info"></p>
+          </div>
+
+          <form id="addInfoForm" action="#">
+
+            <label> Название
+              <input class="form-control" type="text" name="name" placeholder="Название" required>
+            </label>
+
+            <label> Значение
+              <input class="form-control" type="text" name="value" placeholder="Значение" required>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Добавить</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./js/jquery.maskedinput.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/lang/en_ru.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      jQuery(function($){
+        $("#phoneInput").mask("+7 (999) 999-9999");
+      });
+    </script>
+  </body>
+</html>
