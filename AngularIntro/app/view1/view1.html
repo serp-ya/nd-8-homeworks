@@ -1,0 +1,51 @@
+Найти:
+<input ng-model="myQuery"><br><br>
+
+Сортировать по:
+<select ng-model="myOrderProperty">
+    <option value="id">ID</option>
+    <option value="weight">Весу</option>
+    <option value="height">Росту</option>
+
+    <!--сортировка по имени-->
+    <option value="name">Имени</option>
+
+    <!--сортировка по весу (убывание)-->
+    <option value="-weight">Весу (убывание)</option>
+</select>
+
+Отфильтровать по типу
+<select ng-model="typeOrderProperty">
+
+    <!-- Нулевое значение фильтра, для отмены его действия -->
+    <option value=""></option>
+
+    <!-- "Для чистоты эксперемента" подключил модуль angular-filter
+    и указал фильтровать только уникальные значния -->
+    <option ng-repeat="pokemon in pokemons | unique: 'type'" value="{{pokemon.type[0]}}">{{pokemon.type[0]}}</option>
+</select>
+
+<ul>
+    <li ng-repeat="pokemon in pokemons | filter: myQuery | filter: typeOrderFilter(typeOrderProperty)| orderBy: myOrderProperty">
+        <img src="{{pokemon.ThumbnailImage}}" ng-click="showMyName(pokemon.name)"">
+
+        <small>ID #{{pokemon.id }}</small>
+
+        <!-- Отдельные css-классы создал в файле app.css -->
+        <h1 ng-class="{
+        'name-type-poison': pokemon.type[0] === 'poison',
+        'name-type-grass': pokemon.type[0] === 'grass',
+        'name-type-fire': pokemon.type[0] === 'fire',
+        'name-type-water': pokemon.type[0] === 'water',
+        'name-type-electric': pokemon.type[0] === 'electric'
+        }">{{pokemon.name}}</h1>
+        <p>Вес: {{pokemon.weight}}, рост: {{pokemon.height}}</p>
+        <p>Тип: {{pokemon.type [0]}}</p>
+        <hr />
+    </li>
+</ul>
+
+<p ng-show="myQuery">
+    Выведены покемоны, содержащие
+    {{myQuery}}
+</p>

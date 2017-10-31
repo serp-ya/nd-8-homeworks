@@ -1,0 +1,44 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+/* классы отображения имён покемонов */
+.name-type-poison,
+.name-type-grass {
+  color: #5cb85c;
+}
+
+.name-type-fire {
+  color: #ffd712;
+}
+
+.name-type-water {
+  color: #1c94c4;
+}
+
+.name-type-electric {
+  color: #fffd2f;
+}
+
