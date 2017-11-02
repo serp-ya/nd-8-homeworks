@@ -26,8 +26,8 @@
 </select>
 
 <ul>
-    <li ng-repeat="pokemon in pokemons | filter: myQuery | filter: typeOrderFilter(typeOrderProperty)| orderBy: myOrderProperty">
-        <img src="{{pokemon.ThumbnailImage}}" ng-click="showMyName(pokemon.name)"">
+    <li ng-repeat="pokemon in pokemons | filter: myQuery | typeFilter : typeOrderProperty | orderBy: myOrderProperty">
+        <img src="{{pokemon.ThumbnailImage}}" ng-click="showMyName(pokemon.name)">
 
         <small>ID #{{pokemon.id }}</small>
 
