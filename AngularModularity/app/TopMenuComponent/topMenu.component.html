@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="btn-group" role="group">
+      <!-- Выбранный пункт меню выделяется с помощью data-ui-sref-active (спасибо гуглу =)
+      и присвоению вшитого в бутстрап класса "btn-primary" -->
+      <a class="btn btn-default"
+      ng-repeat="item in $ctrl.menuItems"
+      data-ui-sref="{{item.sref}}"
+      data-ui-sref-active="btn-primary"
+      >
+        {{item.title}}
+      </a>
+    </div>
+
+  </div>
+</div>
