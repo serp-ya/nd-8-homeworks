@@ -10,16 +10,16 @@
 </style>
 
 <!-- Проверка авторизации через ng-if, если нет нужных полей, то показываем форму -->
-<form name="myVm.loginForm" novalidate ng-if="!myVm.currentUser.name && !myVm.currentUser.email && !myVm.currentUser.phone">
+<form name="vm.loginForm" novalidate ng-if="!vm.currentUser.name && !vm.currentUser.email && !vm.currentUser.phone">
   <h1>Авторизуйтесь:</h1>
 
   <div class="form-group">
 
     <label>Имя
-      <input class="form-control" data-ng-model="myVm.inputData.name" type="text" placeholder="Имя" ng-minlength="3" required name="accountName">
+      <input class="form-control" data-ng-model="vm.inputData.name" type="text" placeholder="Имя" ng-minlength="3" required name="accountName">
     </label>
 
-    <div ng-messages="myVm.loginForm.accountName.$error" ng-if="myVm.loginForm.accountName.$dirty" role="alert">
+    <div ng-messages="vm.loginForm.accountName.$error" ng-if="vm.loginForm.accountName.$dirty" role="alert">
       <div class="alert alert-danger" ng-message="required">Это поле обязательно!</div>
       <div class="alert alert-danger" ng-message="minlength">Имя не может быть меньше 3 символов</div>
     </div>
@@ -30,10 +30,10 @@
 
     <!-- Паттерн проверки email взят из примеров компании Гугл -->
     <label>Email
-      <input class="form-control" data-ng-model="myVm.inputData.email" type="email" placeholder="Email" ng-minlength="8" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required name="accountEmail">
+      <input class="form-control" data-ng-model="vm.inputData.email" type="email" placeholder="Email" ng-minlength="8" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required name="accountEmail">
     </label>
 
-    <div ng-messages="myVm.loginForm.accountEmail.$error" ng-if="myVm.loginForm.accountEmail.$dirty" role="alert">
+    <div ng-messages="vm.loginForm.accountEmail.$error" ng-if="vm.loginForm.accountEmail.$dirty" role="alert">
       <div class="alert alert-danger" ng-message="required">Это поле обязательно!</div>
       <div class="alert alert-danger" ng-message="email">Введите корректный email</div>
       <div class="alert alert-danger" ng-message="pattern">Введите корректный email</div>
@@ -45,27 +45,27 @@
   <div class="form-group">
 
     <label>Телефон
-      <input class="form-control" data-ng-model="myVm.inputData.phone" type="text" placeholder="Телефон" ng-minlength="12" ng-pattern="/^\+\d+$/" required name="accountPhone">
+      <input class="form-control" data-ng-model="vm.inputData.phone" type="text" placeholder="Телефон" ng-minlength="12" ng-pattern="/^\+\d+$/" required name="accountPhone">
     </label>
 
-    <div ng-messages="myVm.loginForm.accountPhone.$error" ng-if="myVm.loginForm.accountPhone.$dirty" role="alert">
+    <div ng-messages="vm.loginForm.accountPhone.$error" ng-if="vm.loginForm.accountPhone.$dirty" role="alert">
       <div class="alert alert-danger" ng-message="required">Это поле обязательно!</div>
-      <div class="alert alert-danger" ng-message="pattern" ng-if="myVm.loginForm.accountPhone.$viewValue.length > 2">Введите корректный номер телефона в формате +7##########</div>
+      <div class="alert alert-danger" ng-message="pattern" ng-if="vm.loginForm.accountPhone.$viewValue.length > 2">Введите корректный номер телефона в формате +7##########</div>
       <div class="alert alert-danger" ng-message="minlength">Номер телефона не может быть меньше 11 цифр</div>
     </div>
 
   </div>
 
-  <button class="btn btn-default" type="submit" data-ng-click="myVm.singIn(myVm.inputData)" data-ng-disabled="myVm.loginForm.$invalid">Зайти</button>
+  <button class="btn btn-default" type="submit" data-ng-click="vm.singIn(vm.inputData)" data-ng-disabled="vm.loginForm.$invalid">Зайти</button>
 
 </form>
 
 <!-- Отобразить, если есть соответствующие поля в myVm.currentUser -->
-<div ng-if="myVm.currentUser.name && myVm.currentUser.email && myVm.currentUser.phone">
+<div ng-if="vm.currentUser.name && vm.currentUser.email && vm.currentUser.phone">
   <h1>Вы авторизованы:</h1>
 
   <table class="table table-bordered">
-    <tr ng-repeat="(userFieldName, userFieldValue) in myVm.currentUser">
+    <tr ng-repeat="(userFieldName, userFieldValue) in vm.currentUser">
       <td>{{userFieldName}}:</td>
       <td>{{userFieldValue}}</td>
     </tr>
