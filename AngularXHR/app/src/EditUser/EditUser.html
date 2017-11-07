@@ -1,0 +1,65 @@
+<style>
+  label {
+    margin-bottom: 20px;
+    display: block;
+  }
+</style>
+
+<div ng-if="!userLoaded">
+  <span class="glyphicon glyphicon-refresh"></span>
+  Loading...
+</div>
+
+<div class="alert alert-danger" role="alert" ng-if="loadError">Пользователь не найден</div>
+<div class="alert alert-danger" role="alert" ng-if="saveError">Внести изменения не удалось</div>
+<div class="alert alert-success" role="alert" ng-if="userUpdated">Пользователь обновлен</div>
+
+<div class="media" ng-if="userLoaded">
+  <div class="media-body">
+
+    <h1>Edit User: {{user.username | uppercase }}</h1>
+
+    <form name="editUserForm" novalidate>
+
+      <div class="form-group">
+
+        <label>Username:
+          <input class="form-control" type="text" ng-model="userNameField" ng-minlength="3" required name="userName">
+        </label>
+
+        <div ng-messages="editUserForm.userName.$error" ng-if="editUserForm.userName.$dirty" role="alert">
+          <div class="alert alert-danger" ng-message="required">Это поле обязательно!</div>
+          <div class="alert alert-danger" ng-message="minlength">Имя не может быть меньше 3 символов</div>
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Name:
+          <input class="form-control" type="text" ng-model="nameField" ng-minlength="3" required name="name">
+        </label>
+
+        <div ng-messages="editUserForm.name.$error" ng-if="editUserForm.name.$dirty" role="alert">
+          <div class="alert alert-danger" ng-message="required">Это поле обязательно!</div>
+          <div class="alert alert-danger" ng-message="minlength">Имя не может быть меньше 3 символов</div>
+        </div>
+
+      </div>
+
+
+      <a class="btn btn-danger" ng-href="#!/users/{{ user.id }}">
+        <span class="glyphicon glyphicon-remove"></span>
+        Отменить
+      </a>
+
+      <button class="btn btn-primary" ng-click="updateUser(user)" ng-disabled="editUserForm.$invalid">
+        <span class="glyphicon glyphicon-ok"></span>
+        Сохранить
+      </button>
+
+    </form>
+
+  </div>
+</div>

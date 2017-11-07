@@ -1,0 +1,27 @@
+<div ng-if="!userLoaded">
+    <span class="glyphicon glyphicon-refresh"></span>
+    Loading...
+</div>
+
+<div class="alert alert-danger" role="alert" ng-if="notfoundError">Пользователь не найден</div>
+
+<div class="media" ng-if="userLoaded">
+    <div class="media-body">
+
+        <h1 class="media-heading">{{user.username | uppercase }}</h1>
+        <p>
+            {{user.name}}</p>
+
+        <button class="btn btn-danger" ng-click="deleteUser(user.id)">
+            <span class="glyphicon glyphicon-trash"></span>
+            Удалить
+        </button>
+        <a class="btn btn-primary" href="#!/edit/{{user.id}}">
+            Редактировать
+        </a>
+
+    </div>
+</div>
+
+<div class="alert alert-success" role="alert" ng-if="deletionSuccess">Пока, пользователь!</div>
+<div class="alert alert-danger" role="alert" ng-if="deletionError">Пользователи не сдаются!</div>

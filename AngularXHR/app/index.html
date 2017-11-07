@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="UserApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Фреймворк AngularJS / Нетология</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../node_modules/angular-resource/angular-resource.js"></script>
+    <script src="../node_modules/angular-messages/angular-messages.js"></script>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="../node_modules/angular-socket-io/socket.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <div class="btn-group" role="group">
+                    <a class="btn btn-default" href="#!/">Главная</a>
+                    <a class="btn btn-default" href="#!/users">Пользователи</a>
+                    <a class="btn btn-default" href="#!/create">Добавить нового</a>
+                    <a class="btn btn-default" href="#!/realtime/Pikachu">PokeChat - Pikachu</a>
+                    <a class="btn btn-default" href="#!/realtime/Maxim">PokeChat - Maxim</a>
+                </div>
+
+            </div>
+        </div>
+
+        <ng-view></ng-view>
+
+    </div>
+
+    <script src="src/UserApp.js"></script>
+    <script src="src/CreateUser/CreateUserCtrl.js"></script>
+    <script src="src/UserList/UserListCtrl.js"></script>
+    <script src="src/UserDetail/UserDetailCtrl.js"></script>
+    <script src="src/UsersService/UsersService.js"></script>
+    <script src="src/PostsService/PostsService.js"></script>
+    <script src="src/PokemonRealtime/PokemonRealtimeCtrl.js"></script>
+
+    <script src="src/EditUser/EditUserCtrl.js"></script>
+
+
+</body>
+
+</html>
