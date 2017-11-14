@@ -1,0 +1,50 @@
+<md-content class="md-padding" style="max-width: 400px;">
+
+    <md-card>
+        <md-card-header>
+            <md-card-avatar>
+                <img class="md-user-avatar" src="./assets/img/card-avatar.png" alt="Новый пользователь"/>
+            </md-card-avatar>
+            <md-card-header-text>
+                <span class="md-title">Новый пользователь</span>
+                <span class="md-subhead">Это хорошо</span>
+            </md-card-header-text>
+        </md-card-header>
+        <img ng-src="./assets/img/card-bg.jpg" class="md-card-image" alt="Новый пользователь">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Вот вам форма</span>
+                <span class="md-subhead">Давайте ее заполним</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+
+            <form name="userForm" novalidate>
+
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Имя</label>
+                    <input ng-model="newUser.name" required>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Логин</label>
+                    <input ng-model="newUser.username">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Email</label>
+                    <input ng-model="newUser.email">
+                </md-input-container>
+
+                <md-switch ng-model="newUser.active" aria-label="Активен">
+                    Активен
+                </md-switch>
+
+                <md-button class="md-raised md-primary" ng-click="createUser(newUser)" ng-disabled="userForm.$invalid">Добавить</md-button>
+
+            </form>
+
+        </md-card-content>
+    </md-card>
+
+</md-content>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="UserApp">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Фреймворк AngularJS / Нетология</title>
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular-route/angular-route.js"></script>
+        <script src="../node_modules/angular-resource/angular-resource.js"></script>
+
+<!--         <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+ --><link href="../node_modules/angular-material/angular-material.css" rel="stylesheet" >
+
+        <script src="../node_modules/restangular/dist/restangular.js"></script>
+        <script src="../node_modules/lodash/lodash.js"></script>
+
+        <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+        <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+        <script src="../node_modules/angular-animate/angular-animate.js"></script>
+        <script src="../node_modules/angular-aria/angular-aria.js"></script>
+        <script src="../node_modules/angular-material/angular-material.js"></script>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-default" href="#!/">Главная</a>
+                        <a class="btn btn-default" href="#!/users">Пользователи</a>
+                        <a class="btn btn-default" href="#!/create">Добавить нового</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <ng-view></ng-view>
+
+        </div>
+
+        <script src="src/UserApp.js"></script>
+        <script src="src/CreateUser/CreateUserCtrl.js"></script>
+        <script src="src/UserList/UserListComponent.js"></script>
+        <script src="src/UserListItem/UserListItemComponent.js"></script>
+        <script src="src/UsersService/UsersService.js"></script>
+        <script src="src/EditUser/EditUserCtrl.js"></script>
+
+        <script src="src/UserDetail/UserDetailComponent.js"></script>
+
+    </body>
+
+</html>
