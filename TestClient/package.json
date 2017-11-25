@@ -1,0 +1,24 @@
+{
+  "name": "TestClient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "w-update": "webdriver-manager update",
+    "w-start": "webdriver-manager start",
+    "e2e": "protractor"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^4.0.1",
+    "protractor": "^5.2.0"
+  }
+}
